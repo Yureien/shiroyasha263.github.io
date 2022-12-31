@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="Welcome to the ranting page, you can find some blogs here where I will ramble about some things" />
+
+    <title>Blog - 1</title>
+
+    <style>
+        body {
+            margin: 5% 20%;
+            background: #f2f2f2;
+            color: #444444;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 80%;
+        }
+
+        .dark-mode {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            text-shadow: 0;
+        }
+
+        a {
+            color: #444444;
+            text-decoration: none;
+        }
+
+        .dark-mode a {
+            color: #58a6ff;
+        }
+
+        .dark-mode a:visited {
+            color: #8e96f0;
+        }
+
+        a:hover {
+            border-bottom: 0;
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.2;
+        }
+
+        .dark-mode h1 {
+            color: #eee;
+        }
+
+        .dark-mode h3 {
+            color: #ccc;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ol {
+            list-style: none;
+            counter-reset: ol-counter;
+        }
+
+        ol li {
+            counter-increment: ol-counter;
+        }
+
+        ol li::before {
+            content: "Version " counter(ol-counter) ".0: ";
+            font-family: monospace;
+        }
+
+        hr {
+            margin: 40px 0;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 12px;
+            text-align: center;
+            width: 100%;
+        }
+
+        #theme-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 0 10px;
+            color: #000;
+            border: 1px solid #000;
+        }
+
+        .dark-mode #theme-toggle {
+            color: #fff;
+            border: 1px solid #fff;
+        }
+
+        @media only screen and (max-width: 720px) {
+            body {
+                max-width: 90%;
+                margin: 5% 10%;
+            }
+
+            ul {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="section">
+        <h1>My first blog, my first ramble, where I am currently in my life and how I even got here</h1>
+	</div>
+
+    <div class="section">
+		<img src="blog_first.png" alt="Volumetric Render">
+        <p>Hi! My name is Vishesh Gupta and I really enjoy learning about computer graphics and computers in general. 
+			I finally took the time to make my own Path tracer and let me tell you, the whole process of learning and coding it has been one of the best month this year (2022). 
+			It hasnt been been really long since I started coding (2018) but I have come a long way (I am still not sure if I learnt a lot or not). 
+			I started simple with basic school level C++(Though I found it kinda boring and dull, just printing some boring numbers on the screen, storing data, printing stuff). 
+			Then I found Daniel Shiffman's youtube channel and well coding just seemed way much more fun, I can finally get something graphical on the screen, the feeling of finally creating a ball on the screen and moving it was so made me ecstatic, and I just started learning more and more of it. 
+			I could not get enough of it, it was like I was the creator of worlds, governed by my laws and bounded by my imagination alone. This coupled with my interest in video games and my eagerness to learn more, pushed me finally get into computer graphics. 
+			After getting some experience in game development, I decided that the next obvious step (later I realised it wasnt too obvious, it was more of like a decision of a dumb kid with no idea what he is getting into) would be to make my own game engine (yes I know its too big a goal, but I am building slowly towards it).</p>
+    </div>
+
+    <script>
+        // Toggle theme (also add button via JS so it's not visible if JS disabled)
+        const themeToggle = document.createElement("a");
+        themeToggle.href = "#";
+        themeToggle.id = "theme-toggle";
+        document.body.prepend(themeToggle);
+
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-mode");
+            themeToggle.innerText = "Light";
+        } else if (localStorage.getItem("theme") === "light") {
+            document.body.classList.remove("dark-mode");
+            themeToggle.innerText = "Dark";
+        } else {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add("dark-mode");
+                themeToggle.innerText = "Light";
+            } else {
+                document.body.classList.remove("dark-mode");
+                themeToggle.innerText = "Dark";
+            }
+        }
+
+        themeToggle.onclick = (event) => {
+            event.preventDefault();
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+            if (document.body.classList.contains('dark-mode')) themeToggle.innerText = "Light";
+            else themeToggle.innerText = "Dark";
+        };
+        if (document.body.classList.contains('dark-mode')) themeToggle.innerText = "Light";
+        else themeToggle.innerText = "Dark";
+    </script>
+</body>
+
+</html>
